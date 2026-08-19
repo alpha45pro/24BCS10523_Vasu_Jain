@@ -1,0 +1,28 @@
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		 ArrayList<ArrayList<Integer>> warehouse = new ArrayList<>();
+		 warehouse.add(new ArrayList<Integer>() {{ add(10); add(3); add(7); }});
+        warehouse.add(new ArrayList<Integer>() {{ add(1); add(15); add(2); }}); 
+        warehouse.add(new ArrayList<Integer>() {{ add(4); add(5); add(0); }}); 
+        LinkedList<Integer>reorderList=new LinkedList<>();
+        for (ArrayList<Integer> section : warehouse) {
+            for (int stock : section) {
+                if (stock < 5) {
+                    reorderList.add(stock * 2); 
+                }
+            }
+        }
+       for (int i = 0; i < warehouse.size(); i++) {
+            System.out.println("Section " + i + ": " + warehouse.get(i));
+        }
+        System.out.println("\nTarget Reorder : " + reorderList);
+    
+	}
+}

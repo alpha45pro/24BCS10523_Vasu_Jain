@@ -1,0 +1,37 @@
+class BankAccount {
+    private String accId;       
+    private double accBalance; 
+
+    public BankAccount(String id, double initialAmount) {
+        accId = id;
+        accBalance = initialAmount;
+    }
+    public double getAccBalance() {
+        return accBalance;
+    }
+    public void setAccBalance(double newAmount) {
+        if (newAmount >= 0) {
+            accBalance = newAmount;
+        }
+    }
+    public void depositAmount(double depositVal) {
+        accBalance += depositVal;
+    }   
+    public void withdrawAmount(double withdrawVal) {
+        if (accBalance - withdrawVal >= 0) {
+            accBalance -= withdrawVal;
+            System.out.println("Withdrawal successful");
+        } else {
+            System.out.println("Insufficient funds");
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount("122365478", 1000);
+        account.depositAmount(1000.50);
+        account.withdrawAmount(200.80);
+        account.withdrawAmount(900); 
+        System.out.println("Final Balance: " + account.getAccBalance());
+    }
+}

@@ -1,0 +1,38 @@
+package Abstraction;
+
+abstract class Bank {
+    private static int balance = 1000;
+    public void getBalance() {
+        System.out.println("Current Balance: " + balance);
+    }
+    public void setBalance(int val) {
+        balance = val;
+    }
+    public int getBalanceValue() {
+        return balance;
+    }
+}
+class BOB extends Bank {
+    public void debit(int bal) {
+        int currVal = getBalanceValue(); 
+        currVal -= bal;
+        setBalance(currVal);
+    }
+    public void credit(int bal) {
+        int currVal = getBalanceValue(); // use getter
+        currVal += bal;
+        setBalance(currVal);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Sbi BOB = new BOB();
+
+        sbi.getBalance();   
+        sbi.debit(200);     
+        sbi.getBalance();  
+        sbi.credit(500);   
+        sbi.getBalance();   
+    }
+}
